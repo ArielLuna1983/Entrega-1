@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "Laptop Sony Vaio",
+    "description": "Laptop Sony Vaio.",
+    "price": 75000,
+    "thumbanil": "./media/products/Sony-Vaio.jpg",
+    "code":"P001",
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "title": "Laptop Alienware",
+    "description": "Laptop Dell Alienware M-16.",
+    "price": 125000,
+    "thumbanil": "./media/products/Dell-alienware.jpg",
+    "code":"P002",
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "title": "CPU AMD",
+    "description": "CPU AMD Ryzen 5950X.",
+    "price": 135000,
+    "thumbanil": "./media/products/Amd-Ryzen.jpg",
+    "code":"P003",
+    "stock": 10
+  },
+  {
+    "id": 4,
+    "title": "CPU Intel",
+    "description": "CPU intel Core I7 11770.",
+    "price": 180000,
+    "thumbanil": "./media/products/Intel-Core.jpg",
+    "code":"P004",
+    "stock": 20
+  },
+  {
+    "id": 5,
+    "title": "Ram Hyperx",
+    "description": "Ram Hyperx Fury 8gb.",
+    "price": 9500,
+    "thumbanil": "./media/products/hyperx-fury.jpg",
+    "code":"P005",
+    "stock": 15
+  },
+  {
+    "id": 6,
+    "title": "Ram Crucial",
+    "description": "Ram crucial Ballistix 8gb.",
+    "price": 8000,
+    "thumbanil": "./media/products/Crucial-Ballistix.jpg",
+    "code":"P006",
+    "stock": 15
+  },
+  {
+    "id": 7,
+    "title": "Gygabite B550M.",
+    "description": "MotherBoard Gygabite B550M para AMD.",
+    "price": 15000,
+    "thumbanil": "./media/products/B550M.jpg",
+    "code":"P007",
+    "stock": 12
+  },
+  {
+    "id": 8,
+    "title": "Gygabite H410M.",
+    "description": "MotherBoard Gygabite H410M para Intel.",
+    "price": 18000,
+    "thumbanil": "./media/products/Gigabyte-h410m-h.jpg",
+    "code":"P008",
+    "stock": 25
+  },
+  {
+    "id": 9,
+    "title": "SSD SATA.",
+    "description": "SSD BX500 de Crucial SATA 500gb.",
+    "price": 7000,
+    "thumbanil": "./media/products/Crucial-SSD-BX500.jpg",
+    "code":"P009",
+    "stock": 15
+  },
+  {
+    "id": 10,
+    "title": "SSD M.2",
+    "description": "SSD M.2 Samsung Pro Evo 500gb.",
+    "price": 8000,
+    "thumbanil": "./media/products/samsung-ssd.m2.jpg",
+    "code":"P010",
+    "stock": 5
+  },
+  {
+    "id": 11,
+    "title": "GPU 3090",
+    "description": "GPU ROG Nvidia RTX 3090.",
+    "price": 800000,
+    "thumbanil": "./media/products/ROG-3090.jpg",
+    "code":"P011",
+    "stock": 2
+  },
+  {
+    "id": 12,
+    "title": "GPU RX 6900XT",
+    "description": "GPU AMD Radeon Rx 6900 XT.",
+    "price": 650000,
+    "thumbanil": "./media/products/rx-6900.jpg",
+    "code":"P012",
+    "stock": 20
+  },
+  {
+    "id": 13,
+    "title": "PSU Gygabite",
+    "description": "Fuente Gygabite de 1000 w certificado Gold 80 plus.",
+    "price": 35000,
+    "thumbanil": "./media/products/Gygabite-1000.jpg",
+    "code":"P013",
+    "stock": 25
+  },
+  {
+    "id": 14,
+    "title": "PSU Seasonic",
+    "description": "Fuente Seasonic Prime de 1000 w certificado Gold 80 plus.",
+    "price": 40000,
+    "thumbanil": "./media/products/seasonic-prime.jpg",
+    "code":"P014",
+    "stock": 10
+  },
+  {
+    "id": 15,
+    "title": "Gabinete Thermal-Take",
+    "description": "Gabinete ATX Thermal-Take.",
+    "price": 15000,
+    "thumbanil": "./media/products/Gabinete-T-take.jpg",
+    "code":"P015",
+    "stock": 10
+  },
+  {
+    "id": 16,
+    "title": "Gabinete Sentey",
+    "description": "Gabinete ATX Sente.",
+    "price": 10000,
+    "thumbanil": "./media/products/gabinete-netmark.jpg",
+    "code":"P016",
+    "stock": 20
+  }
+]
