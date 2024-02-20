@@ -9,15 +9,9 @@ export default class CartManager{
 //Lee el carro y lo crea si no existe
     async readCart() {
         try {
-            if (this.cart) {
             let carrito = await fs.readFile(this.cart, 'utf-8');
             return JSON.parse(carrito);
-            }else {
-                await fs.writeFile(this.cart, JSON.stringify([], null, 2));
-                return [];
-            }
-        }
-        catch (error) {
+        }catch (error) {
                 throw new Error('Error el crear el archivo del carrito')
             }
     };
