@@ -4,8 +4,7 @@ import express from 'express';
 // Importa los archivos de rutas
 import cartRoutes from './routes/cart.routes.js';
 import productRoutes from './routes/products.routes.js';
-import CartManager from './controllers/CartManager.js';
-const cm = new CartManager();
+
 //App y PORT
 const app = express();
 const PORT = 8080;
@@ -31,5 +30,3 @@ app.use('api/carts', cartRoutes);
 app.listen(PORT, () => {
     console.log(`Server funcionando en Puerto ${PORT}.`);
 });
-
-cm.readCart();
