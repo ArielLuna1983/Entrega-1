@@ -1,26 +1,25 @@
 // Llamar al FS
-const FS = require ("fs").promises;
+import { promises as fs } from 'fs';
 
 // Generar Clase
-module.exports = class ProductManager {
+export default class ProductManager {
     constructor() {
       this.products = [];
       this.id = 1;
-      this.path = "./products.json"
-
+      this.path = "../data/products.json";
     }
 
 // Agrega el producto
-    addProduct = async (title, description, price, thumbnail, code, stock) => {
+    addProduct = async (title, description, price, code, stock, thumbnail = "") => {
 // Validar que todos los campos sean obligatorios
         const required = [title, description, price, thumbnail, code, stock];
             if (!required.every(field => field)) {
-                console.log( 1 + ") Todos los campos son obligatorios");
+                console.log(" Todos los campos son obligatorios excepto thumbnail");
                 return;
             }
 // Validar que no se repita el campo "code"
             if (this.products.some(product => product.code === code)) {
-                console.log( 2 + ") Ya existe un producto con el mismo código");
+                console.log("Ya existe un producto con el mismo código");
                 return;
             }
   
@@ -36,10 +35,10 @@ module.exports = class ProductManager {
         };
         this.products.push(newProduct);
         this.id++;
-        console.log( 3 + ") Producto agregado correctamente:", newProduct);
+        console.log("Producto agregado correctamente:", newProduct);
 //Guarda el archivo
         try {
-            await FS.writeFile(this.path, JSON.stringify(this.products, null, 2));
+            await fs.writeFile(this.path, JSON.stringify(this.products, null, 2));
         }catch (error) {
             console.error("Error al guardar el archivo:", error);
             throw error;
@@ -49,7 +48,7 @@ module.exports = class ProductManager {
 // Lee el Archivo
     getProducts = async () => {
         try{
-            const items = await FS.readFile(this.path, "utf-8");
+            const items = await fs.readFile(this.path, "utf-8");
             console.log(items);
             return JSON.parse(items);
         }catch{
@@ -78,11 +77,10 @@ module.exports = class ProductManager {
             const products = await this.getProducts();
             const productIndex = products.findIndex(product => product.id === productId);
             if (productIndex === -1) {
-                console.log(5 + ') No se encontró ningún producto con el ID especificado.');
                 return;
             }
             products[productIndex] = { ...products[productIndex], ...updatedFields };
-            await FS.writeFile(this.path, JSON.stringify(products, null, 2));
+            await fs.writeFile(this.path, JSON.stringify(products, null, 2));
         } catch (error) {
             console.error("Error al actualizar el producto:", error);
             throw error;
@@ -98,9 +96,8 @@ module.exports = class ProductManager {
             if (i.id === id) found = true;
                 return (i.id != id);
             });
-            console.log(6 + ") Id Borrado", deleteId);
             if (found) {
-                await FS.writeFile("./products.json", JSON.stringify(deleteId, null, 2));
+                await fs.writeFile(this.path, JSON.stringify(deleteId, null, 2));
             }
         } catch (error) {
             console.error("Error al eliminar el producto:", error);

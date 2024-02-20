@@ -1,0 +1,17 @@
+{
+  "name": "desafio_pre-entrega",
+  "version": "1.0.0",
+  "description": "Desafio Pre entrega clase 5",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "nodemon src/app.js"
+  },
+  "author": "Ariel Luna",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-router": "^0.0.1",
+    "nodemon": "^3.0.3"
+  }
+}
