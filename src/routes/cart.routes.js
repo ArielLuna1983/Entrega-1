@@ -13,7 +13,7 @@ const pm = new ProductManager();
 router.get('/:cid', async (req, res) => {
     try {
         let { cid } = req.params;
-        let contenido = await cm.readCart(cid);
+        let contenido = await cm.getCartById(parseInt(cid));
         res.json(contenido)
     } catch (error) {
         res.status(500).json({message: 'Error al obtener el contenido del carrito', error: error.message});
@@ -23,16 +23,12 @@ router.get('/:cid', async (req, res) => {
 // Ruta POST para agregar un producto al carrito
 router.post('/:cid/product/:pid', async (req, res) => {
     try {
-        let { cid, pid } = req.params;
-        let quantity = req.body.quantity || 1;
-        const product = await pm.getProductById(pid);
-        if (!product) {
-            return res.status(404).json({ message: 'producto no encontrado' });
-        }
-        let newCartId = await cm.addCart(product, quantity, cid);
-        res.json({message: 'Producto agregado al carrito', newCartId });
+        let { cid, pid } =req.params;
+        let product = await pm.getProductById(parseInt(pid));
+        let cart = await cm.addCart(product);
+        res.json(cart);
     } catch (error) {
-        res.status(500).json({ mesage: 'error al agregar el producto al carrito', error: error.message });
+        res.status(500).json({ message: 'error al agregar el producto al carrito', error: error.message });
     }
 });
 

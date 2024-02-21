@@ -3,34 +3,45 @@ import { promises as fs, readFile } from 'fs';
 export default class CartManager{
     constructor () {
         this.cart = '../data/carrito.json';
-        this.contadorId = 0;
+        this.countId = 0;
     }
+
+//Guardar el carrito.
+async saveCart(cart) {
+    await fs.writeFile(this.cart, JSON.stringify(cart, null, 2));
+};
 
 //Lee el carro y lo crea si no existe
     async readCart() {
         try {
-            let carrito = await fs.readFile(this.cart, 'utf-8');
-            return JSON.parse(carrito);
-        }catch (error) {
-                throw new Error('Error el crear el archivo del carrito')
+            const cart = await fs.readFile(this.cart, 'utf-8');
+            return JSON.parse(cart);
+        } catch (error) {
+            if(error.code === 'ENOENT') {
+                await this.saveCart([]);
+                return [];
+            }else {
+                throw error;
             }
+       }
     };
 
 // Agrega los productos
-async addCart(product, quantity = 1, cid) {
-    try {
-        let carrito = await this.readCart();
-        let cid = this.contadorId++;
-        carrito.push({
-            id: cid,
+async addCart(product, quantity = 1,) {
+    let cart = await this.readCart();
+    const prodIndex = cart.findIndex(item => item.product.id === product.id);
+    if (prodIndex !== -1 ) {
+        cart[prodIndex].quantity += quantity;
+    }else {
+        const newCartItem = {
+            id: ++this.countId,
             product,
             quantity
-        });
-        await fs.writeFile(this.cart, JSON.stringify(carrito, null, 2));
-        return cid;
-    } catch (error) {
-        throw new Error('Error al agregar el producto al carrito');
+        };
+        cart.push(newCartItem);
     }
+    await this.saveCart(cart);
+    return cart;
 };
 
 //Busca por ID
